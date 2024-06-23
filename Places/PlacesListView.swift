@@ -9,6 +9,7 @@ struct PlacesListView: View {
     }
     
     @State var viewState: ViewState = .idle
+    @State var address: String = ""
     
     let repository: any LocationsRepository
     
@@ -24,12 +25,21 @@ struct PlacesListView: View {
             case .loading:
                 loadingView
             case .success(let items):
+                TextField("Enter your name", text: $address)
+                    .submitLabel(.done)
                 listView(items: items)
             case .error(let error):
                 errorView(error)
             }
         }
         .padding()
+        .onSubmit {
+            CityCoordinateFinder().getCoordinateFrom(address: address) { coordinate, error in
+                guard let coordinate = coordinate, error == nil else { return }
+                
+                UIApplication.shared.open(URL(string: "wikipedia://places?lat=\(coordinate.latitude)&lon=\(coordinate.longitude)")!)
+            }
+        }
         .task {
             viewState = .loading
             do {
@@ -55,7 +65,7 @@ extension PlacesListView {
     private func listView(items: [Location]) -> some View {
         List {
             ForEach(items) { item in
-                Text(item.name ?? "unknown")
+                Link(item.name ?? "", destination: URL(string: "wikipedia://places?lat=\(item.location.coordinate.latitude)&lon=\(item.location.coordinate.longitude)")!)
             }
         }
     }

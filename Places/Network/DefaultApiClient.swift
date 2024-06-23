@@ -25,6 +25,8 @@ class DefaultApiClient: NSObject, ApiClient {
 }
 
 extension DefaultApiClient: URLSessionDelegate {
+    // MARK: URLSessionDelegate
+    // needed to bypass zScaler proxy SSL error on simulator
     func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge) async -> (URLSession.AuthChallengeDisposition, URLCredential?) {
         let authenticationMethod = challenge.protectionSpace.authenticationMethod
         if authenticationMethod == NSURLAuthenticationMethodServerTrust {

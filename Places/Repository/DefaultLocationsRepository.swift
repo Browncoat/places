@@ -31,7 +31,7 @@ extension Location: Decodable {
         let lat = try container.decode(Double.self, forKey: .lat)
         let long = try container.decode(Double.self, forKey: .long)
         
-        coordinates = CLLocationCoordinate2D(latitude: lat, longitude: long)
+        location = CLLocation(latitude: lat, longitude: long)
     }
 }
 

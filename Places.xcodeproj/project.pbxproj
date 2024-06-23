@@ -23,6 +23,7 @@
 		F49CB4422C2865850034E16A /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49CB4412C2865850034E16A /* ApiClient.swift */; };
 		F49CB4462C2865F00034E16A /* DefaultApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49CB4452C2865F00034E16A /* DefaultApiClient.swift */; };
 		F49CB4492C2868610034E16A /* MockApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49CB4482C2868610034E16A /* MockApiClient.swift */; };
+		F49CB44C2C28CE710034E16A /* CityCoordinateFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49CB44B2C28CE710034E16A /* CityCoordinateFinder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		F49CB4452C2865F00034E16A /* DefaultApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultApiClient.swift; sourceTree = "<group>"; };
 		F49CB4482C2868610034E16A /* MockApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockApiClient.swift; sourceTree = "<group>"; };
 		F49CB44A2C286F760034E16A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		F49CB44B2C28CE710034E16A /* CityCoordinateFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCoordinateFinder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				F49CB42F2C25CF350034E16A /* Resources */,
 				F49CB4052C25BE180034E16A /* PlacesApp.swift */,
 				F49CB4072C25BE180034E16A /* PlacesListView.swift */,
+				F49CB44B2C28CE710034E16A /* CityCoordinateFinder.swift */,
 				F49CB4092C25BE1A0034E16A /* Assets.xcassets */,
 				F49CB40B2C25BE1A0034E16A /* Preview Content */,
 			);
@@ -358,6 +361,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F49CB44C2C28CE710034E16A /* CityCoordinateFinder.swift in Sources */,
 				F49CB4352C25D0630034E16A /* DefaultLocationsRepository.swift in Sources */,
 				F49CB4372C25D09C0034E16A /* LocationsRepository.swift in Sources */,
 				F49CB4082C25BE180034E16A /* PlacesListView.swift in Sources */,
