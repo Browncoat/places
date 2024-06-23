@@ -1,3 +1,3 @@
-protocol LocationsRepositoryProtocol {
+protocol LocationsRepository {
     func getItems() async throws -> [Location]
 }
