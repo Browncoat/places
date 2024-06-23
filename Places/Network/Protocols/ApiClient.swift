@@ -1,5 +1,10 @@
 import Foundation
 
+enum ApiClientError: Error {
+    case malformedURL
+    case networkError
+}
+
 protocol ApiClient {
-    func get<T>(path: String) -> [T]
+    func get(path: String) async throws -> Data
 }

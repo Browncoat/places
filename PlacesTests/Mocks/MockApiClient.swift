@@ -1,8 +1,14 @@
-//
-//  MockApiClient.swift
-//  PlacesTests
-//
-//  Created by Nate Payne Potter on 23/06/2024.
-//
-
 import Foundation
+@testable import Places
+
+class MockApiClient: ApiClient {
+    var isError: Bool = false
+    
+    func get(path: String) async throws -> Data {
+        if isError {
+            throw ApiClientError.networkError
+        }
+        
+        return Response.mock.data(using: .utf8)!
+    }
+}

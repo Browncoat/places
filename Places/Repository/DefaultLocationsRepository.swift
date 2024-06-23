@@ -1,8 +1,18 @@
 import MapKit
 
-class DefaultLocationsRepository: LocationsRepositoryProtocol {
+class DefaultLocationsRepository: LocationsRepository {
+    let apiClient: ApiClient
+    
+    init(with apiClient: ApiClient) {
+        self.apiClient = apiClient
+    }
+    
     func getItems() async throws -> [Location] {
-        return [Location]()
+        let data = try await apiClient.get(path: "https://raw.githubusercontent.com/abnamrocoesd/assignment-ios/main/locations.json")
+        
+        let locations = try JSONDecoder().decode(LocationsResponse.self, from: data).locations
+        
+        return locations
     }
 }
 

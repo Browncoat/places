@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  Places
-//
-//  Created by Nate Payne Potter on 21/06/2024.
-//
-
 import SwiftUI
 
 struct PlacesListView: View {
@@ -16,6 +9,12 @@ struct PlacesListView: View {
     }
     
     @State var viewState: ViewState = .idle
+    
+    let repository: any LocationsRepository
+    
+    init(with repository: any LocationsRepository = DefaultLocationsRepository(with: DefaultApiClient())) {
+        self.repository = repository
+    }
     
     var body: some View {
         Group {
@@ -34,8 +33,7 @@ struct PlacesListView: View {
         .task {
             viewState = .loading
             do {
-                let items = try await MockLocationsRepository().getItems()
-                viewState = .success(items: items)
+                viewState = try await viewState.fetching(from: repository)
             } catch {
                 viewState = .error(error: error)
             }
@@ -64,6 +62,17 @@ extension PlacesListView {
     
     private func errorView(_ error: Error) -> some View {
         Text(error.localizedDescription.localizedLowercase)
+    }
+}
+
+extension PlacesListView.ViewState {
+    func fetching(from repository: LocationsRepository) async throws -> Self {
+        do {
+            let items = try await repository.getItems()
+            return .success(items: items)
+        } catch {
+            return .error(error: error)
+        }
     }
 }
 

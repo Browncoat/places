@@ -1,6 +1,6 @@
 import Foundation
 
-class MockLocationsRepository: LocationsRepositoryProtocol {
+class MockLocationsRepository: LocationsRepository {
     func getItems() async throws -> [Location] {
         let data = Response.mock.data(using: .utf8)!
         
