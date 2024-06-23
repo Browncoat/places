@@ -16,6 +16,10 @@ struct ContentView: View {
             Text("Hello, world!")
         }
         .padding()
+        .task {
+            let items = try? await MockLocationsRepository().getItems()
+            print(items)
+        }
     }
 }
 
