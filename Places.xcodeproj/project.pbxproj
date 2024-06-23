@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F49CB4062C25BE180034E16A /* PlacesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49CB4052C25BE180034E16A /* PlacesApp.swift */; };
-		F49CB4082C25BE180034E16A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49CB4072C25BE180034E16A /* ContentView.swift */; };
+		F49CB4082C25BE180034E16A /* PlacesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49CB4072C25BE180034E16A /* PlacesListView.swift */; };
 		F49CB40A2C25BE1A0034E16A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F49CB4092C25BE1A0034E16A /* Assets.xcassets */; };
 		F49CB40D2C25BE1A0034E16A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F49CB40C2C25BE1A0034E16A /* Preview Assets.xcassets */; };
 		F49CB4172C25BE1B0034E16A /* PlacesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49CB4162C25BE1B0034E16A /* PlacesTests.swift */; };
@@ -41,7 +41,7 @@
 /* Begin PBXFileReference section */
 		F49CB4022C25BE180034E16A /* Places.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Places.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F49CB4052C25BE180034E16A /* PlacesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesApp.swift; sourceTree = "<group>"; };
-		F49CB4072C25BE180034E16A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F49CB4072C25BE180034E16A /* PlacesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesListView.swift; sourceTree = "<group>"; };
 		F49CB4092C25BE1A0034E16A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F49CB40C2C25BE1A0034E16A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F49CB4122C25BE1B0034E16A /* PlacesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlacesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,7 +109,7 @@
 				F49CB4322C25D00D0034E16A /* Views */,
 				F49CB42F2C25CF350034E16A /* Resources */,
 				F49CB4052C25BE180034E16A /* PlacesApp.swift */,
-				F49CB4072C25BE180034E16A /* ContentView.swift */,
+				F49CB4072C25BE180034E16A /* PlacesListView.swift */,
 				F49CB4092C25BE1A0034E16A /* Assets.xcassets */,
 				F49CB40B2C25BE1A0034E16A /* Preview Content */,
 			);
@@ -314,7 +314,7 @@
 			files = (
 				F49CB4352C25D0630034E16A /* DefaultLocationsRepository.swift in Sources */,
 				F49CB4372C25D09C0034E16A /* LocationsRepositoryProtocol.swift in Sources */,
-				F49CB4082C25BE180034E16A /* ContentView.swift in Sources */,
+				F49CB4082C25BE180034E16A /* PlacesListView.swift in Sources */,
 				F49CB4312C25CFE50034E16A /* Response+Mock.swift in Sources */,
 				F49CB43A2C25D0C80034E16A /* Location.swift in Sources */,
 				F49CB4062C25BE180034E16A /* PlacesApp.swift in Sources */,
