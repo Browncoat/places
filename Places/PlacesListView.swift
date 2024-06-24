@@ -9,6 +9,7 @@ struct PlacesListView: View {
     
     @State var viewState: ViewState = .loading
     @State var address: String = ""
+    @State var isErrorPresented: Bool = false
     
     let repository: any LocationsRepository
     
@@ -22,7 +23,7 @@ struct PlacesListView: View {
             case .loading:
                 loadingView
             case .success(let items):
-                TextField("Enter your name", text: $address)
+                TextField("Type a place or address.", text: $address)
                     .submitLabel(.done)
                     .accessibilityLabel(Text("Type a place address"))
                     .accessibilityAddTraits([.isSearchField])
@@ -36,8 +37,20 @@ struct PlacesListView: View {
             CityCoordinateFinder().getCoordinateFrom(address: address) { coordinate, error in
                 guard let coordinate = coordinate, error == nil else { return }
                 
+                guard UIApplication.shared.canOpenURL(URL(string: "wikipedia://places")!) else {
+                    isErrorPresented = true
+                    return
+                }
+                
                 UIApplication.shared.open(URL(string: "wikipedia://places?lat=\(coordinate.latitude)&lon=\(coordinate.longitude)")!)
             }
+        }
+        .alert(isPresented: .constant(isErrorPresented)) {
+            Alert(
+                title: Text("Ooops"),
+                message: Text("Wikipedia App is not installed."),
+                dismissButton: .default(Text("OK")) { }
+            )
         }
         .task {
             viewState = .loading
