@@ -30,26 +30,18 @@ extension DefaultApiClient: URLSessionDelegate {
     func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge) async -> (URLSession.AuthChallengeDisposition, URLCredential?) {
         let authenticationMethod = challenge.protectionSpace.authenticationMethod
         if authenticationMethod == NSURLAuthenticationMethodServerTrust {
-            // Evaluate server certificate
-            // unwrap serverTrust and handle it being nil.
-            var result = SecTrustResultType(rawValue: 0)!
-            // @typedef SecTrustResultType
-            // @abstract Specifies the trust result type.
-            // @discussion SecTrustResultType results have two dimensions.They specify both whether evaluation succeeded and whether this is because of a user decision.
+            var error: CFError?
             if let serverTrust = challenge.protectionSpace.serverTrust {
-                SecTrustEvaluate(serverTrust, &result)
-                switch result {
-                case .unspecified,.recoverableTrustFailure:
-                    return (URLSession.AuthChallengeDisposition.useCredential, URLCredential(trust: serverTrust))
-                    
-                case .proceed:
-                    return (URLSession.AuthChallengeDisposition.performDefaultHandling, nil)
-
-                default: break
+                let isTrusted = SecTrustEvaluateWithError(serverTrust, &error)
+                
+                if isTrusted {
+                    return (.performDefaultHandling, nil)
                 }
+                
+                return (.useCredential, URLCredential(trust: serverTrust))
             }
         }
         
-        return (URLSession.AuthChallengeDisposition.cancelAuthenticationChallenge, nil)
+        return (.cancelAuthenticationChallenge, nil)
     }
 }
