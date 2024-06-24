@@ -14,16 +14,15 @@
 		F49CB4172C25BE1B0034E16A /* PlacesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49CB4162C25BE1B0034E16A /* PlacesTests.swift */; };
 		F49CB4212C25BE1B0034E16A /* PlacesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49CB4202C25BE1B0034E16A /* PlacesUITests.swift */; };
 		F49CB4232C25BE1B0034E16A /* PlacesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49CB4222C25BE1B0034E16A /* PlacesUITestsLaunchTests.swift */; };
-		F49CB4312C25CFE50034E16A /* Response+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49CB4302C25CFE50034E16A /* Response+Mock.swift */; };
 		F49CB4352C25D0630034E16A /* DefaultLocationsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49CB4342C25D0630034E16A /* DefaultLocationsRepository.swift */; };
 		F49CB4372C25D09C0034E16A /* LocationsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49CB4362C25D09C0034E16A /* LocationsRepository.swift */; };
 		F49CB43A2C25D0C80034E16A /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49CB4392C25D0C80034E16A /* Location.swift */; };
-		F49CB43C2C25D27E0034E16A /* MockLocationsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49CB43B2C25D27E0034E16A /* MockLocationsRepository.swift */; };
 		F49CB43F2C2864660034E16A /* PlacesListViewStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49CB43E2C2864660034E16A /* PlacesListViewStateTests.swift */; };
 		F49CB4422C2865850034E16A /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49CB4412C2865850034E16A /* ApiClient.swift */; };
 		F49CB4462C2865F00034E16A /* DefaultApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49CB4452C2865F00034E16A /* DefaultApiClient.swift */; };
 		F49CB4492C2868610034E16A /* MockApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49CB4482C2868610034E16A /* MockApiClient.swift */; };
 		F49CB44C2C28CE710034E16A /* CityCoordinateFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49CB44B2C28CE710034E16A /* CityCoordinateFinder.swift */; };
+		F49CB44D2C2969E10034E16A /* Response+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49CB4302C25CFE50034E16A /* Response+Mock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +57,6 @@
 		F49CB4342C25D0630034E16A /* DefaultLocationsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLocationsRepository.swift; sourceTree = "<group>"; };
 		F49CB4362C25D09C0034E16A /* LocationsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsRepository.swift; sourceTree = "<group>"; };
 		F49CB4392C25D0C80034E16A /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
-		F49CB43B2C25D27E0034E16A /* MockLocationsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocationsRepository.swift; sourceTree = "<group>"; };
 		F49CB43E2C2864660034E16A /* PlacesListViewStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesListViewStateTests.swift; sourceTree = "<group>"; };
 		F49CB4412C2865850034E16A /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		F49CB4452C2865F00034E16A /* DefaultApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultApiClient.swift; sourceTree = "<group>"; };
@@ -160,7 +158,6 @@
 		F49CB42F2C25CF350034E16A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F49CB4302C25CFE50034E16A /* Response+Mock.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -175,7 +172,6 @@
 		F49CB4332C25D0140034E16A /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				F49CB43D2C285F480034E16A /* Mocks */,
 				F49CB4342C25D0630034E16A /* DefaultLocationsRepository.swift */,
 				F49CB4432C2865D40034E16A /* Protocols */,
 			);
@@ -188,14 +184,6 @@
 				F49CB4392C25D0C80034E16A /* Location.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		F49CB43D2C285F480034E16A /* Mocks */ = {
-			isa = PBXGroup;
-			children = (
-				F49CB43B2C25D27E0034E16A /* MockLocationsRepository.swift */,
-			);
-			path = Mocks;
 			sourceTree = "<group>";
 		};
 		F49CB4402C2865720034E16A /* Network */ = {
@@ -226,6 +214,7 @@
 		F49CB4472C28684E0034E16A /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				F49CB4302C25CFE50034E16A /* Response+Mock.swift */,
 				F49CB4482C2868610034E16A /* MockApiClient.swift */,
 			);
 			path = Mocks;
@@ -366,11 +355,9 @@
 				F49CB4372C25D09C0034E16A /* LocationsRepository.swift in Sources */,
 				F49CB4082C25BE180034E16A /* PlacesListView.swift in Sources */,
 				F49CB4422C2865850034E16A /* ApiClient.swift in Sources */,
-				F49CB4312C25CFE50034E16A /* Response+Mock.swift in Sources */,
 				F49CB43A2C25D0C80034E16A /* Location.swift in Sources */,
 				F49CB4062C25BE180034E16A /* PlacesApp.swift in Sources */,
 				F49CB4462C2865F00034E16A /* DefaultApiClient.swift in Sources */,
-				F49CB43C2C25D27E0034E16A /* MockLocationsRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,6 +367,7 @@
 			files = (
 				F49CB4492C2868610034E16A /* MockApiClient.swift in Sources */,
 				F49CB43F2C2864660034E16A /* PlacesListViewStateTests.swift in Sources */,
+				F49CB44D2C2969E10034E16A /* Response+Mock.swift in Sources */,
 				F49CB4172C25BE1B0034E16A /* PlacesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -34,21 +34,7 @@ final class PlacesListViewStateTests: XCTestCase {
         let viewState = try await placesListView.viewState.fetching(from: repository)
         
         // THEN
-        guard case PlacesListView.ViewState.error(let error) = viewState, case ApiClientError.networkError = error else {
-            XCTFail("Incorrect ViewState \(viewState)")
-            return
-        }
-    }
-    
-    func testViewStateLoading() async throws {
-        // GIVEN
-        mockApiClient.isError = true
-        
-        // WHEN
-        let viewState = try await placesListView.viewState.fetching(from: repository)
-        
-        // THEN
-        guard case PlacesListView.ViewState.error(let error) = viewState, case ApiClientError.networkError = error else {
+        guard case PlacesListView.ViewState.success = viewState else {
             XCTFail("Incorrect ViewState \(viewState)")
             return
         }
