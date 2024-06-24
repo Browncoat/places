@@ -2,13 +2,12 @@ import SwiftUI
 
 struct PlacesListView: View {
     enum ViewState {
-        case idle
         case loading
         case success(items: [Location])
         case error(error: Error)
     }
     
-    @State var viewState: ViewState = .idle
+    @State var viewState: ViewState = .loading
     @State var address: String = ""
     
     let repository: any LocationsRepository
@@ -20,13 +19,13 @@ struct PlacesListView: View {
     var body: some View {
         Group {
             switch viewState {
-            case .idle:
-                idleView
             case .loading:
                 loadingView
             case .success(let items):
                 TextField("Enter your name", text: $address)
                     .submitLabel(.done)
+                    .accessibilityLabel(Text("Type a place address"))
+                    .accessibilityAddTraits([.isSearchField])
                 listView(items: items)
             case .error(let error):
                 errorView(error)
@@ -54,20 +53,21 @@ struct PlacesListView: View {
 extension PlacesListView {
     // MARK: SubViews
     
-    private var idleView: some View {
-        EmptyView()
-    }
-    
     private var loadingView: some View {
-        Text("loading")
+        ProgressView()
+            .scaleEffect(.init(width: 2, height: 2))
     }
     
     private func listView(items: [Location]) -> some View {
         List {
             ForEach(items) { item in
                 Link(item.name ?? "", destination: URL(string: "wikipedia://places?lat=\(item.location.coordinate.latitude)&lon=\(item.location.coordinate.longitude)")!)
+                    .accessibilityLabel(Text(item.name ?? "no name"))
+                    .accessibilityAddTraits([.isButton])
+                    .accessibilityHint(Text("Opens location on map in Wikipedia app (if installed)"))
             }
         }
+        .accessibilityLabel(Text("Place names list"))
     }
     
     private func errorView(_ error: Error) -> some View {
